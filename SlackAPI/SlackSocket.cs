@@ -191,7 +191,10 @@ namespace SlackAPI
                 }
                 if (message != null)
                 {
-                    HandleMessage(message, data);
+                    Task.Run(() =>
+                    {
+                        HandleMessage(message, data);
+                    });
                 }
             };
         }
