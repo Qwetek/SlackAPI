@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
     <metadata>
-        <id>SlackAPI</id>
-        <version>1.0.4.1</version>
-        <title>SlackAPI</title>
-        <authors>Inumedia</authors>
-        <owners>Inumedia</owners>
+        <id>SlackAPI.WebSocketSharp</id>
+        <version>1.0.5.1</version>
+        <title>SlackAPI.WebSocketSharp</title>
+        <authors>Inumedia, Baggykiin</authors>
+        <owners>Baggykiin</owners>
         <licenseUrl>http://choosealicense.com/licenses/mit/</licenseUrl>
         <requireLicenseAcceptance>true</requireLicenseAcceptance>
-        <description>C# implementation of the Slack team communication platform API.</description>
+        <description>A Mono-compatible fork of SlackAPI, using the WebSocketSharp library instead of System.Net.Websockets</description>
         <summary>The MIT License (MIT)</summary>
         <copyright />
         <language>en-US</language>

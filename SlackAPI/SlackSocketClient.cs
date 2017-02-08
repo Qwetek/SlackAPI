@@ -1,8 +1,8 @@
-﻿using System.Net.WebSockets;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Threading;
 using SlackAPI.WebSocketMessages;
+using WebSocketSharp;
 
 namespace SlackAPI
 {
