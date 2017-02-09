@@ -4,11 +4,9 @@ using SlackAPI.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Linq;
-using WebSocketSharp;
+using WebSocket4Net;
 
 namespace SlackAPI
 {
@@ -23,9 +21,9 @@ namespace SlackAPI
         int currentId;
 
         Dictionary<string, Dictionary<string, Delegate>> routes;
-        public bool Connected { get { return socket != null && socket.ReadyState == WebSocketState.Open; } }
-        public event Action<WebSocketException> ErrorSending;
-        public event Action<WebSocketException> ErrorReceiving;
+        public bool Connected { get { return socket != null && socket.State == WebSocketState.Open; } }
+        //public event Action<WebSocketException> ErrorSending;
+        public event Action<Exception> ErrorReceiving;
         public event Action<Exception> ErrorReceivingDesiralization;
         public event Action<Exception> ErrorHandlingMessage;
         public event Action ConnectionClosed;
@@ -65,7 +63,9 @@ namespace SlackAPI
             sendingQueue = new LockFreeQueue<string>();
             currentId = 1;
 
-            socket.Connect();
+	        socket.Error += (sender, args) => ErrorReceiving?.Invoke(args.Exception);
+
+            socket.Open();
             onConnected?.Invoke();
             SetupReceiving();
         }
@@ -175,9 +175,9 @@ namespace SlackAPI
 
         void SetupReceiving()
         {
-            socket.OnMessage += (sender, args) =>
+            socket.MessageReceived += (sender, args) =>
             {
-                string data = args.Data;
+                string data = args.Message;
                 //Console.WriteLine("SlackSocket data = " + data);
                 SlackSocketMessage message = null;
                 try
@@ -237,7 +237,7 @@ namespace SlackAPI
         void HandleSending(object stateful)
         {
             string message;
-            while (sendingQueue.Pop(out message) && socket.ReadyState == WebSocketState.Open)
+            while (sendingQueue.Pop(out message) && socket.State == WebSocketState.Open)
             {
                 socket.Send(message);
             }

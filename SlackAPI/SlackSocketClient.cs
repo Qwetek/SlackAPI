@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using System.Threading;
 using SlackAPI.WebSocketMessages;
-using WebSocketSharp;
 
 namespace SlackAPI
 {
@@ -50,7 +49,7 @@ namespace SlackAPI
 			underlyingSocket = new SlackSocket(loginDetails, this, onSocketConnected);
 		}
 
-        public void ErrorReceiving<K>(Action<WebSocketException> callback)
+        public void ErrorReceiving<K>(Action<Exception> callback)
         {
             if (callback != null) underlyingSocket.ErrorReceiving += callback;
         }
