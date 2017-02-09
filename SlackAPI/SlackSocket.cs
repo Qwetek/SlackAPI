@@ -63,7 +63,7 @@ namespace SlackAPI
             sendingQueue = new LockFreeQueue<string>();
             currentId = 1;
 
-	        socket.Error += (sender, args) => ErrorReceiving?.Invoke(args.Exception);
+            socket.Error += (sender, args) => ErrorReceiving?.Invoke(args.Exception);
 
             socket.Open();
             onConnected?.Invoke();
