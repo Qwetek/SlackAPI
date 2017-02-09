@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
     <metadata>
-        <id>SlackAPI.WebSocketSharp</id>
+        <id>SlackAPI.WebSocket4Net</id>
         <version>1.0.5.2</version>
-        <title>SlackAPI.WebSocketSharp</title>
+        <title>SlackAPI.WebSocket4Net</title>
         <authors>Inumedia, Baggykiin</authors>
         <owners>Baggykiin</owners>
         <licenseUrl>http://choosealicense.com/licenses/mit/</licenseUrl>
