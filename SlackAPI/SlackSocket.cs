@@ -238,7 +238,7 @@ namespace SlackAPI
         {
             if (callbacks.ContainsKey(message.reply_to))
                 callbacks[message.reply_to](data);
-            else if (routes.ContainsKey(message.type) && routes[message.type].ContainsKey(message.subtype ?? "null"))
+            else if (routes.ContainsKey(message.type ?? "null") && routes[message.type].ContainsKey(message.subtype ?? "null"))
             {
                 try
                 {
