@@ -249,11 +249,11 @@ namespace SlackAPI
         {
             try
             {
-                this.socket.Close();
+                socket.Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-
+                // ignored
             }
 
             if (Interlocked.CompareExchange(ref closedEmitted, 1, 0) == 0 && ConnectionClosed != null)
