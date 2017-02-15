@@ -1,6 +1,6 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/5n9e7sruxpo0mw79/branch/master?svg=true)](https://ci.appveyor.com/project/Inumedia/slackapi/branch/master)
-
 # SlackAPI
+
+A fork of [Inumedia/SlackAPI](https://github.com/Inumedia/SlackAPI) which changes the underlying socket protocol to use WebSocket4Net. This allows the library to function correctly on Mono, as Mono's implementation of System.Net.Websockets is rather broken.
 
 This is a third party implementation of Slack's API written in C#. This supports their WebAPI aswell as their Real Time Messaging API.
 
