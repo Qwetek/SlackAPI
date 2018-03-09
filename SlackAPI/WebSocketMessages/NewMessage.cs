@@ -7,6 +7,7 @@ namespace SlackAPI.WebSocketMessages
     public class NewMessage : SlackSocketMessage
     {
         public string user;
+        public string username;
         public string channel;
         public string text;
         public string team;
